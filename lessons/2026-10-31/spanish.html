@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<title>Spanish Week 2 (Oct. 31): Numbers 1 to 10</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:linear-gradient(160deg,#fff8ef,#fdeee6 55%,#eef6f1);color:#2b2522}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c2410c}
+  h1{color:#c2410c;font-size:2em;margin:10px 0}
+  h2{color:#ea580c;margin-top:36px;border-bottom:3px solid #fdba74;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .tipbox{background:#fff7d6;border-left:8px solid #f59e0b}
+  .culture{background:#ecfdf5;border-left:8px solid #15803d}
+  .word{font-size:2em;font-weight:bold;color:#c2410c;line-height:1.2}
+  .say{font-family:Consolas,"Courier New",monospace;background:#ffedd5;padding:2px 8px;border-radius:8px;font-size:.95em}
+  .card{border-left:8px solid #ea580c;padding-left:14px}
+  .ex{margin-top:8px;background:#fff7ed;border-radius:10px;padding:8px 12px;font-size:.95em}
+  .dl{border-left:8px solid #0d9488}
+  .dl.r{border-left-color:#c2410c}
+  .who{font-weight:bold;color:#0d9488}
+  .dl.r .who{color:#c2410c}
+  .q{border-left:8px solid #cbd5e1}
+  .q.right{border-left-color:#16a34a;background:#f0fdf4}
+  .q.wrong{border-left-color:#dc2626;background:#fef2f2}
+  .opt{display:block;width:100%;text-align:left;font-size:.95em;background:#fafafa;border:2px solid #e5e7eb;border-radius:10px;padding:8px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+  .opt:hover{border-color:#fdba74;background:#fff}
+  .opt.sel-right{background:#bbf7d0;border-color:#16a34a}
+  .opt.sel-wrong{background:#fecaca;border-color:#dc2626}
+  .fb{margin-top:6px;font-weight:bold}
+  .fb.good{color:#15803d} .fb.bad{color:#b91c1c}
+  .explain{font-weight:normal;color:#c2410c}
+  .vrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px dashed #eee}
+  .vrow .w{font-weight:bold;min-width:170px;font-size:1.2em}
+  .vrow.right{background:#f0fdf4} .vrow.wrong{background:#fef2f2}
+  select{font-size:.95em;padding:6px 8px;border-radius:8px;border:2px solid #fdba74;max-width:100%;font-family:inherit}
+  .mark{font-size:1.2em;min-width:30px}
+  button.main{font-size:1em;padding:10px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ea580c;color:#fff;margin-top:10px}
+  button.main:hover{background:#c2410c}
+  input[type=text]{font-size:1.05em;padding:8px 12px;border:2px solid #fdba74;border-radius:10px;width:min(100%,260px);font-family:inherit}
+  button.check{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ea580c;color:#fff}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  #scoreBox{position:sticky;bottom:0;background:#c2410c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#fde047;color:#3f2a14}
+  #final{display:none;text-align:center;border:4px solid #16a34a;font-size:1.1em}
+  .note{font-size:.85em;color:#c2410c}
+  table.gt{border-collapse:collapse;width:100%;margin:8px 0}
+  table.gt td,table.gt th{border:1px solid #fed7aa;padding:6px 10px;text-align:left}
+  table.gt th{background:#ffedd5}
+
+  .audio-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:12px 0 4px}
+  button.speak,button.record,button.play-mine,button.play-model,button.audio-ctrl{
+    font-size:1.05em;padding:14px 18px;min-height:52px;min-width:52px;
+    border:none;border-radius:14px;cursor:pointer;font-weight:bold;font-family:inherit;
+    touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  }
+  button.speak,button.play-model,button.audio-ctrl.hear{background:#ea580c;color:#fff}
+  button.speak:hover,button.play-model:hover,button.audio-ctrl.hear:hover{background:#c2410c}
+  button.record{background:#dc2626;color:#fff}
+  button.record:hover{background:#b91c1c}
+  button.record.recording{background:#fde047;color:#3f2a14;animation:pulse 1s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+  button.play-mine{background:#0d9488;color:#fff}
+  button.play-mine:hover{background:#0f766e}
+  button.play-mine:disabled{opacity:.45;cursor:not-allowed}
+  button.audio-ctrl.stop{background:#57534e;color:#fff}
+  .practice{margin-top:14px;padding-top:12px;border-top:2px dashed #fdba74}
+  .practice-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .rec-status{margin-top:8px;font-weight:bold;color:#ea580c;font-size:.95em}
+  .rec-status.rec-on{color:#b91c1c}
+  .mic-msg{margin-top:8px;background:#fff7ed;border-left:6px solid #ea580c;border-radius:10px;padding:10px 14px;font-size:.95em;color:#c2410c}
+  button.ex-hear{font-size:.85em;padding:8px 12px;min-height:44px;min-width:44px;margin-left:6px;vertical-align:middle}
+  @media (max-width:520px){body{font-size:18px}h1{font-size:1.6em}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>🔢 Spanish Week 2: Numbers 1 to 10</h1>
+<p>¡Hola otra vez, Rebecca! Last week you learned to say hello and introduce yourself. This week you'll count from one to ten, which is enough to order at a café, say how many of something you want, give a phone number digit by digit, and understand a small price. The conversation in Part 2 puts it all together at a coffee counter. The audio is Latin American Spanish, spoken a little slowly.</p>
+
+<div class="box tipbox">
+  <strong>Sounds to listen for this week:</strong>
+  <ul>
+    <li><strong>The single r is a quick tap:</strong> in <em>tres</em> and <em>cuatro</em>, flick your tongue once, like the "tt" in American "butter".</li>
+    <li><strong>ei sounds like English "ay":</strong> <em>seis</em> rhymes with "case".</li>
+    <li><strong>c before e or i sounds like s</strong> (in Latin America): <em>cinco</em> is <span class="say">SEEN-koh</span>, <em>diez</em> ends in an s sound too.</li>
+    <li><strong>ch is like English ch:</strong> <em>ocho</em> is <span class="say">OH-choh</span>.</li>
+    <li><strong>v sounds almost like a soft b:</strong> <em>nueve</em> is close to <span class="say">NWEH-beh</span>.</li>
+  </ul>
+</div>
+
+<h2>Part 1: Learn This Week's Words</h2>
+<div class="box tipbox"><strong>Listen &amp; practise:</strong> Tap <em>Hear model</em> to hear the word. Then tap <em>Record</em>, say it, and compare with <em>Play my try</em> and <em>Play model</em>. <em>Hear example</em> plays the whole example sentence. Your recordings stay on your device and are never uploaded.</div>
+<div class="audio-bar">
+  <button type="button" class="audio-ctrl hear" id="playAll">🔊 Play all words</button>
+  <button type="button" class="audio-ctrl stop" id="stopAudio">⏹️ Stop</button>
+  <span class="note">Plays every word with the English first.</span>
+</div>
+<div id="cards"></div>
+
+<h2>Part 2: A Short Conversation</h2>
+<p>Rebecca orders at a little café. Luis is behind the counter. Tap each line to hear it, then record yourself saying Rebecca's lines.</p>
+<div id="dialogue"></div>
+
+<h2>Grammar Tip: uno becomes un, and plurals add -s</h2>
+<div class="box tipbox">
+  <p>When you count out loud, say <strong>uno</strong>. But right before a word, it shortens to <strong>un</strong> (or <strong>una</strong> for "feminine" words): <em>un café</em>, <em>una galleta</em>. You'll pick up which words are which over time, so don't worry about it yet.</p>
+  <p>For two or more, the thing usually just adds <strong>-s</strong> (or <strong>-es</strong> after a consonant):</p>
+  <table class="gt">
+    <tr><th>One</th><th>More than one</th></tr>
+    <tr><td>un café</td><td>dos cafés</td></tr>
+    <tr><td>una galleta (a cookie)</td><td>tres galletas</td></tr>
+    <tr><td>un libro (a book)</td><td>seis libros</td></tr>
+    <tr><td>un dólar</td><td>diez dólares</td></tr>
+  </table>
+  <p>Two handy question words go with numbers: <strong>¿Cuánto es?</strong> ("How much is it?") and <strong>¿Cuántos?</strong> ("How many?"). And <strong>cero</strong> is zero, useful for phone numbers.</p>
+</div>
+
+<h2>Culture Corner</h2>
+<div class="box culture">
+  <p>📞 Spanish speakers often read phone numbers in pairs (<em>noventa y dos</em> for 92), but saying them one digit at a time, <em>nueve, dos</em>, is perfectly understood and is what you'll hear at most counters when someone spells a number slowly.</p>
+  <p>✋ When counting on fingers, many people in Latin America start with the thumb for one, not the index finger. And the number 7 is often written with a small line across the middle, and 1 with a little hook at the top, so it doesn't look like a 7.</p>
+  <p>☕ At a café in Mexico, you often order first and pay at the end; just ask <em>¿Cuánto es?</em> when you're ready. Adding <em>por favor</em> ("please") to any order is always welcome.</p>
+</div>
+
+<h2>Part 3: Match the Meaning</h2>
+<div class="box">
+  <p>Choose the English meaning for each Spanish word or phrase.</p>
+  <div id="vmatch"></div>
+  <button type="button" class="main" id="checkMatch">Check my matching</button>
+  <div class="fb" id="matchFb"></div>
+</div>
+
+<h2>Part 4: Listen and Choose</h2>
+<p>Tap 🔊 to hear a clip (as many times as you like), then pick what it means. Only your <strong>first pick</strong> counts toward your score.</p>
+<div id="listen"></div>
+
+<h2>Part 5: Fill in the Blank</h2>
+<p>Type the missing Spanish number (the digit in brackets tells you which one). Accents and capitals are optional. Press Enter or tap Check.</p>
+<div id="fill"></div>
+
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText"></span>
+  <button type="button" id="finishBtn">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script src="../../assets/player.js"></script>
+<script>
+var WORDS = [
+ {
+  "es": "uno",
+  "hint": "OO-noh",
+  "en": "one (un right before a word)",
+  "audio": "01-uno-one.mp3",
+  "ex_es": "Un café, por favor.",
+  "ex_en": "One coffee, please.",
+  "ex_audio": "01-uno-one-ex.mp3"
+ },
+ {
+  "es": "dos",
+  "hint": "dohs",
+  "en": "two",
+  "audio": "02-dos-two.mp3",
+  "ex_es": "Dos cafés, por favor.",
+  "ex_en": "Two coffees, please.",
+  "ex_audio": "02-dos-two-ex.mp3"
+ },
+ {
+  "es": "tres",
+  "hint": "trehs (tap the r)",
+  "en": "three",
+  "audio": "03-tres-three.mp3",
+  "ex_es": "Tengo tres hermanos.",
+  "ex_en": "I have three siblings.",
+  "ex_audio": "03-tres-three-ex.mp3"
+ },
+ {
+  "es": "cuatro",
+  "hint": "KWAH-troh",
+  "en": "four",
+  "audio": "04-cuatro-four.mp3",
+  "ex_es": "Son las cuatro.",
+  "ex_en": "It's four o'clock.",
+  "ex_audio": "04-cuatro-four-ex.mp3"
+ },
+ {
+  "es": "cinco",
+  "hint": "SEEN-koh",
+  "en": "five",
+  "audio": "05-cinco-five.mp3",
+  "ex_es": "Cinco minutos, por favor.",
+  "ex_en": "Five minutes, please.",
+  "ex_audio": "05-cinco-five-ex.mp3"
+ },
+ {
+  "es": "seis",
+  "hint": "SAYS",
+  "en": "six",
+  "audio": "06-seis-six.mp3",
+  "ex_es": "Tengo seis libros.",
+  "ex_en": "I have six books.",
+  "ex_audio": "06-seis-six-ex.mp3"
+ },
+ {
+  "es": "siete",
+  "hint": "see-EH-teh",
+  "en": "seven",
+  "audio": "07-siete-seven.mp3",
+  "ex_es": "Hay siete días en una semana.",
+  "ex_en": "There are seven days in a week.",
+  "ex_audio": "07-siete-seven-ex.mp3"
+ },
+ {
+  "es": "ocho",
+  "hint": "OH-choh",
+  "en": "eight",
+  "audio": "08-ocho-eight.mp3",
+  "ex_es": "La clase es a las ocho.",
+  "ex_en": "The class is at eight.",
+  "ex_audio": "08-ocho-eight-ex.mp3"
+ },
+ {
+  "es": "nueve",
+  "hint": "NWEH-beh (v sounds like a soft b)",
+  "en": "nine",
+  "audio": "09-nueve-nine.mp3",
+  "ex_es": "Mi número es nueve, nueve, dos.",
+  "ex_en": "My number is nine, nine, two.",
+  "ex_audio": "09-nueve-nine-ex.mp3"
+ },
+ {
+  "es": "diez",
+  "hint": "dee-EHS",
+  "en": "ten",
+  "audio": "10-diez-ten.mp3",
+  "ex_es": "Son diez dólares.",
+  "ex_en": "It's ten dollars.",
+  "ex_audio": "10-diez-ten-ex.mp3"
+ }
+];
+var DIALOGUE = [
+ {
+  "sp": "Luis",
+  "es": "¡Buenos días! ¿Qué desea?",
+  "en": "Good morning! What would you like?",
+  "audio": "dialogue-01.mp3"
+ },
+ {
+  "sp": "Rebecca",
+  "es": "Buenos días. Dos cafés, por favor.",
+  "en": "Good morning. Two coffees, please.",
+  "audio": "dialogue-02.mp3"
+ },
+ {
+  "sp": "Luis",
+  "es": "Muy bien. ¿Y algo más?",
+  "en": "Very good. Anything else?",
+  "audio": "dialogue-03.mp3"
+ },
+ {
+  "sp": "Rebecca",
+  "es": "Sí, tres galletas. ¿Cuánto es?",
+  "en": "Yes, three cookies. How much is it?",
+  "audio": "dialogue-04.mp3"
+ },
+ {
+  "sp": "Luis",
+  "es": "Son diez dólares.",
+  "en": "That's ten dollars.",
+  "audio": "dialogue-05.mp3"
+ },
+ {
+  "sp": "Rebecca",
+  "es": "Aquí tiene. ¡Gracias, adiós!",
+  "en": "Here you go. Thanks, bye!",
+  "audio": "dialogue-06.mp3"
+ }
+];
+
+var PRAISE=["¡Muy bien!","¡Excelente, Rebecca!","¡Perfecto!","Yes! Say it out loud once more.","¡Fantástico!","Correct, nice work!"];
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function shuffled(arr,seed){var a=arr.slice(),s=seed;for(var i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function play(f){ if(window.RebeccaSpanishAudio) RebeccaSpanishAudio.play(f); }
+
+function buildCards(){
+  var box=document.getElementById("cards");
+  WORDS.forEach(function(w,i){
+    var d=document.createElement("div"); d.className="box";
+    d.setAttribute("data-audio", w.audio); d.setAttribute("data-audio-label", w.es);
+    d.innerHTML='<div class="card">'+
+      '<div class="word">'+(i+1)+'. '+w.es+'</div>'+
+      '<div>Say it: <span class="say">'+w.hint+'</span></div>'+
+      '<div><strong>'+w.en+'</strong></div></div>'+
+      '<div class="ex"><strong>Example:</strong> '+w.ex_es+
+      ' <button type="button" class="speak ex-hear" data-file="'+w.ex_audio+'">🔊 Hear example</button><br>'+
+      '<em>'+w.ex_en+'</em></div>'+
+      '<div class="practice"></div>';
+    box.appendChild(d);
+  });
+}
+function buildDialogue(){
+  var box=document.getElementById("dialogue");
+  DIALOGUE.forEach(function(l,i){
+    var d=document.createElement("div"); d.className="box dl"+(l.sp==="Rebecca"?" r":"");
+    d.setAttribute("data-audio", l.audio); d.setAttribute("data-audio-label", l.sp+": "+l.es);
+    d.innerHTML='<div><span class="who">'+l.sp+':</span> <span style="font-size:1.15em">'+l.es+'</span></div><div><em>'+l.en+'</em></div><div class="practice"></div>';
+    box.appendChild(d);
+  });
+}
+document.addEventListener("click",function(e){
+  var b=e.target.closest?e.target.closest("[data-file]"):null;
+  if(!b) return; e.preventDefault(); play(b.getAttribute("data-file"));
+});
+
+var matchScore=0, matchChecked=false;
+function buildMatch(){
+  var m=document.getElementById("vmatch");
+  var order=shuffled(WORDS.map(function(w,i){return i;}),311);
+  WORDS.forEach(function(w,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vm"+i;
+    var sel='<select id="vsel'+i+'" aria-label="Meaning of '+w.es+'"><option value="">- choose English -</option>';
+    order.forEach(function(k){ sel+='<option value="'+k+'">'+WORDS[k].en+'</option>'; });
+    sel+='</select>';
+    row.innerHTML='<span class="mark" id="vmk'+i+'"></span><span class="w">'+w.es+'</span>'+sel;
+    m.appendChild(row);
+  });
+}
+function checkMatch(){
+  var score=0, blank=0;
+  WORDS.forEach(function(w,i){
+    var v=document.getElementById("vsel"+i).value, ok=(v===String(i));
+    if(!v) blank++; if(ok) score++;
+    document.getElementById("vm"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vmk"+i).textContent=ok?"✅":"❌";
+  });
+  matchScore=score; matchChecked=true;
+  var fb=document.getElementById("matchFb");
+  if(score===WORDS.length){ fb.className="fb good"; fb.textContent="🌟 "+score+" / "+WORDS.length+". ¡Perfecto, Rebecca!"; }
+  else { fb.className="fb bad"; fb.textContent=score+" / "+WORDS.length+" correct"+(blank?" ("+blank+" blank)":"")+". Fix the ❌ ones and check again."; }
+  updateScore();
+}
+
+var LISTEN = [
+ {f:"08-ocho-eight.mp3", o:["Four","Eight","Six","Two"], a:1, e:"Ocho: eight."},
+ {f:"03-tres-three.mp3", o:["Three","Two","Ten","Seven"], a:0, e:"Tres: three. Listen for the tapped r."},
+ {f:"06-seis-six.mp3", o:["Seven","Five","Nine","Six"], a:3, e:"Seis: six. It rhymes with \"case\"."},
+ {f:"09-nueve-nine.mp3", o:["Two","One","Nine","Ten"], a:2, e:"Nueve: nine."},
+ {f:"02-dos-two-ex.mp3", o:["Two coffees, please.","Ten coffees, please.","One coffee, please.","Three coffees, please."], a:0, e:"Dos cafés, por favor: two coffees, please."},
+ {f:"10-diez-ten-ex.mp3", o:["It's two dollars.","It's ten dollars.","It's seven dollars.","It's four o'clock."], a:1, e:"Son diez dólares: it's ten dollars."}
+];
+var lsState=LISTEN.map(function(){return{answered:false,firstRight:false,done:false};});
+function buildListen(){
+  var box=document.getElementById("listen");
+  LISTEN.forEach(function(item,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="ls"+i;
+    var html='<div class="row"><strong>'+(i+1)+'.</strong> <button type="button" class="speak" data-file="'+item.f+'">🔊 Play clip '+(i+1)+'</button></div>';
+    item.o.forEach(function(opt,j){ html+='<button type="button" class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+". "+opt+"</button>"; });
+    html+='<div class="fb" id="lsfb'+i+'"></div>';
+    d.innerHTML=html; box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".opt"):null; if(!b)return;
+    var i=+b.getAttribute("data-i"), j=+b.getAttribute("data-j"), st=lsState[i], item=LISTEN[i];
+    if(st.done)return;
+    var right=(j===item.a);
+    if(!st.answered){ st.answered=true; st.firstRight=right; }
+    var fb=document.getElementById("lsfb"+i), card=document.getElementById("ls"+i);
+    if(right){ st.done=true; b.classList.add("sel-right"); card.className="box q right"; fb.className="fb good"; fb.innerHTML="✅ "+pick(PRAISE)+' <span class="explain">'+item.e+"</span>"; }
+    else { b.classList.add("sel-wrong"); card.className="box q wrong"; fb.className="fb bad"; fb.textContent="❌ Not quite. Play the clip again and listen for the first word."; }
+    updateScore();
+  });
+}
+
+var FILL = [
+ {s:"___ café, por favor. (1)", en:"One coffee, please.", a:"un"},
+ {s:"___ cafés, por favor. (2)", en:"Two coffees, please.", a:"dos"},
+ {s:"Tengo ___ hermanos. (3)", en:"I have three siblings.", a:"tres"},
+ {s:"Son las ___. (4)", en:"It's four o'clock.", a:"cuatro"},
+ {s:"___ minutos, por favor. (5)", en:"Five minutes, please.", a:"cinco"},
+ {s:"Hay ___ días en una semana. (7)", en:"There are seven days in a week.", a:"siete"},
+ {s:"La clase es a las ___. (8)", en:"The class is at eight.", a:"ocho"},
+ {s:"Son ___ dólares. (10)", en:"It's ten dollars.", a:"diez"}
+];
+var fillState=FILL.map(function(){return{correct:false,tries:0};});
+function norm(s){
+  s=String(s||"").toLowerCase().trim();
+  if(s.normalize) s=s.normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+  return s.replace(/[¡!¿?.,;:'"\s]+/g,"");
+}
+function buildFill(){
+  var box=document.getElementById("fill");
+  FILL.forEach(function(it,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="f"+i;
+    d.innerHTML='<div><strong>'+(i+1)+'.</strong> <span style="font-size:1.15em">'+it.s+'</span><br><em class="note">'+it.en+'</em></div>'+
+      '<div class="row"><input type="text" id="fi'+i+'" autocomplete="off" spellcheck="false" autocapitalize="off" aria-label="Missing word '+(i+1)+'">'+
+      '<button type="button" class="check" data-i="'+i+'">Check</button></div><div class="fb" id="ffb'+i+'"></div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON"||!b.classList.contains("check"))return;
+    fillCheck(+b.getAttribute("data-i"));
+  });
+  box.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target.tagName==="INPUT")fillCheck(+e.target.id.slice(2));});
+}
+function fillCheck(i){
+  var val=document.getElementById("fi"+i).value, fb=document.getElementById("ffb"+i), st=fillState[i];
+  if(!val.trim()){fb.className="fb bad";fb.textContent="Type the missing word first.";return;}
+  st.tries++;
+  var ok = norm(val)===norm(FILL[i].a);
+  if(ok){
+    st.correct=true; document.getElementById("f"+i).className="box q right";
+    fb.className="fb good"; fb.textContent="✅ "+pick(PRAISE)+(st.tries===1?" (first try!)":"")+" "+FILL[i].s.replace("___",FILL[i].a);
+  } else {
+    st.correct=false; document.getElementById("f"+i).className="box q wrong";
+    fb.className="fb bad"; fb.textContent="❌ Not quite. Look back at Part 1 and try again.";
+  }
+  updateScore();
+}
+
+function scores(){
+  var l=0; lsState.forEach(function(s){if(s.firstRight)l++;});
+  var f=0; fillState.forEach(function(s){if(s.correct)f++;});
+  return {match:matchScore, listen:l, fill:f};
+}
+function updateScore(){
+  var s=scores();
+  document.getElementById("scoreText").textContent="Match: "+(matchChecked?s.match:"-")+"/"+WORDS.length+" · Listening: "+s.listen+"/"+LISTEN.length+" · Fill-in: "+s.fill+"/"+FILL.length;
+}
+function finish(){
+  if(!matchChecked) checkMatch();
+  var s=scores(), total=WORDS.length+LISTEN.length+FILL.length, got=s.match+s.listen+s.fill, pct=Math.round(100*got/total);
+  var msg = pct===100 ? "🏆 ¡Perfecto, Rebecca! Now count from uno to diez out loud, then try the Part 2 conversation as Rebecca." :
+            pct>=80 ? "🌟 ¡Muy bien! Count from uno to diez and back down again, smooth and confident." :
+            pct>=60 ? "💪 Good effort. Review the cards and retry the ❌ ones." :
+                      "🌱 Great start. Play all words, repeat each one out loud, then try again.";
+  var f=document.getElementById("final"); f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+got+" / "+total+" ("+pct+"%)</h2>"+
+    "<p>Matching: "+s.match+"/"+WORDS.length+" · Listening (first try): "+s.listen+"/"+LISTEN.length+" · Fill-in: "+s.fill+"/"+FILL.length+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#c2410c'>Finished on "+new Date().toLocaleString("en-CA",{timeZone:"America/Vancouver"})+" PT</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+buildCards(); buildDialogue(); buildMatch(); buildListen(); buildFill(); updateScore();
+RebeccaSpanishAudio.wireLesson({ playAllBtn: "#playAll", stopBtn: "#stopAudio" });
+document.getElementById("checkMatch").addEventListener("click",checkMatch);
+document.getElementById("finishBtn").addEventListener("click",finish);
+</script>
+<script src="../../assets/autosave.js"></script>
+</body>
+</html>
