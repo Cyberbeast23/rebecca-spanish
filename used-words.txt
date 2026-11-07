@@ -18,3 +18,13 @@ siete — seven
 ocho — eight
 nueve — nine
 diez — ten
+la familia — family
+el padre — father
+la madre — mother
+el hermano — brother
+la hermana — sister
+el hijo — son
+la hija — daughter
+el abuelo — grandfather
+la abuela — grandmother
+los padres — parents

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<title>Spanish Week 3 (Nov. 7): Family</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:linear-gradient(160deg,#fff8ef,#fdeee6 55%,#eef6f1);color:#2b2522}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c2410c}
+  h1{color:#c2410c;font-size:2em;margin:10px 0}
+  h2{color:#ea580c;margin-top:36px;border-bottom:3px solid #fdba74;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .tipbox{background:#fff7d6;border-left:8px solid #f59e0b}
+  .culture{background:#ecfdf5;border-left:8px solid #15803d}
+  .word{font-size:2em;font-weight:bold;color:#c2410c;line-height:1.2}
+  .say{font-family:Consolas,"Courier New",monospace;background:#ffedd5;padding:2px 8px;border-radius:8px;font-size:.95em}
+  .card{border-left:8px solid #ea580c;padding-left:14px}
+  .ex{margin-top:8px;background:#fff7ed;border-radius:10px;padding:8px 12px;font-size:.95em}
+  .dl{border-left:8px solid #0d9488}
+  .dl.r{border-left-color:#c2410c}
+  .who{font-weight:bold;color:#0d9488}
+  .dl.r .who{color:#c2410c}
+  .q{border-left:8px solid #cbd5e1}
+  .q.right{border-left-color:#16a34a;background:#f0fdf4}
+  .q.wrong{border-left-color:#dc2626;background:#fef2f2}
+  .opt{display:block;width:100%;text-align:left;font-size:.95em;background:#fafafa;border:2px solid #e5e7eb;border-radius:10px;padding:8px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+  .opt:hover{border-color:#fdba74;background:#fff}
+  .opt.sel-right{background:#bbf7d0;border-color:#16a34a}
+  .opt.sel-wrong{background:#fecaca;border-color:#dc2626}
+  .fb{margin-top:6px;font-weight:bold}
+  .fb.good{color:#15803d} .fb.bad{color:#b91c1c}
+  .explain{font-weight:normal;color:#c2410c}
+  .vrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px dashed #eee}
+  .vrow .w{font-weight:bold;min-width:170px;font-size:1.2em}
+  .vrow.right{background:#f0fdf4} .vrow.wrong{background:#fef2f2}
+  select{font-size:.95em;padding:6px 8px;border-radius:8px;border:2px solid #fdba74;max-width:100%;font-family:inherit}
+  .mark{font-size:1.2em;min-width:30px}
+  button.main{font-size:1em;padding:10px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ea580c;color:#fff;margin-top:10px}
+  button.main:hover{background:#c2410c}
+  input[type=text]{font-size:1.05em;padding:8px 12px;border:2px solid #fdba74;border-radius:10px;width:min(100%,260px);font-family:inherit}
+  button.check{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ea580c;color:#fff}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  #scoreBox{position:sticky;bottom:0;background:#c2410c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#fde047;color:#3f2a14}
+  #final{display:none;text-align:center;border:4px solid #16a34a;font-size:1.1em}
+  .note{font-size:.85em;color:#c2410c}
+  table.gt{border-collapse:collapse;width:100%;margin:8px 0}
+  table.gt td,table.gt th{border:1px solid #fed7aa;padding:6px 10px;text-align:left}
+  table.gt th{background:#ffedd5}
+
+  .audio-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:12px 0 4px}
+  button.speak,button.record,button.play-mine,button.play-model,button.audio-ctrl{
+    font-size:1.05em;padding:14px 18px;min-height:52px;min-width:52px;
+    border:none;border-radius:14px;cursor:pointer;font-weight:bold;font-family:inherit;
+    touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  }
+  button.speak,button.play-model,button.audio-ctrl.hear{background:#ea580c;color:#fff}
+  button.speak:hover,button.play-model:hover,button.audio-ctrl.hear:hover{background:#c2410c}
+  button.record{background:#dc2626;color:#fff}
+  button.record:hover{background:#b91c1c}
+  button.record.recording{background:#fde047;color:#3f2a14;animation:pulse 1s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+  button.play-mine{background:#0d9488;color:#fff}
+  button.play-mine:hover{background:#0f766e}
+  button.play-mine:disabled{opacity:.45;cursor:not-allowed}
+  button.audio-ctrl.stop{background:#57534e;color:#fff}
+  .practice{margin-top:14px;padding-top:12px;border-top:2px dashed #fdba74}
+  .practice-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .rec-status{margin-top:8px;font-weight:bold;color:#ea580c;font-size:.95em}
+  .rec-status.rec-on{color:#b91c1c}
+  .mic-msg{margin-top:8px;background:#fff7ed;border-left:6px solid #ea580c;border-radius:10px;padding:10px 14px;font-size:.95em;color:#c2410c}
+  button.ex-hear{font-size:.85em;padding:8px 12px;min-height:44px;min-width:44px;margin-left:6px;vertical-align:middle}
+  @media (max-width:520px){body{font-size:18px}h1{font-size:1.6em}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>👨‍👩‍👧‍👦 Spanish Week 3: Family (la familia)</h1>
+<p>¡Hola otra vez, Rebecca! You can already say hello and count to ten. This week is all about <strong>la familia</strong> — the people closest to you. You'll learn how to name parents, siblings, kids, and grandparents, and how to introduce them. The conversation in Part 2 is Ana introducing her family to you. The audio is Latin American Spanish, spoken a little slowly.</p>
+
+<div class="box tipbox">
+  <strong>Sounds to listen for this week:</strong>
+  <ul>
+    <li><strong>h is silent:</strong> <em>hijo</em> and <em>hija</em> start with a vowel sound — <span class="say">EE-hoh</span>, <span class="say">EE-hah</span>.</li>
+    <li><strong>Stress on the second-last syllable:</strong> most of these words are loud on the middle: <em>fa-<strong>MI</strong>-lia</em>, <em>her-<strong>MA</strong>-no</em>, <em>a-<strong>BUE</strong>-lo</em>.</li>
+    <li><strong>ue sounds like "weh":</strong> <em>abuelo</em> and <em>abuela</em> have a quick "weh" in the middle.</li>
+    <li><strong>d between vowels is soft:</strong> in <em>padre</em> and <em>madre</em>, the d is gentle, almost like the "th" in "the" (but don't force it).</li>
+    <li><strong>Gender endings:</strong> many masculine words end in <strong>-o</strong> (<em>hermano, hijo, abuelo</em>) and feminine ones in <strong>-a</strong> (<em>hermana, hija, abuela</em>).</li>
+  </ul>
+</div>
+
+<h2>Part 1: Learn This Week's Words</h2>
+<div class="box tipbox"><strong>Listen &amp; practise:</strong> Tap <em>Hear model</em> to hear the word. Then tap <em>Record</em>, say it, and compare with <em>Play my try</em> and <em>Play model</em>. <em>Hear example</em> plays the whole example sentence. Your recordings stay on your device and are never uploaded.</div>
+<div class="audio-bar">
+  <button type="button" class="audio-ctrl hear" id="playAll">🔊 Play all words</button>
+  <button type="button" class="audio-ctrl stop" id="stopAudio">⏹️ Stop</button>
+  <span class="note">Plays every word with the English first.</span>
+</div>
+<div id="cards"></div>
+
+<h2>Part 2: A Short Conversation</h2>
+<p>Ana introduces her family to Rebecca. Tap each line to hear it, then record yourself saying Rebecca's lines.</p>
+<div id="dialogue"></div>
+
+<h2>Grammar Tip: Spanish nouns have gender (el / la)</h2>
+<div class="box tipbox">
+  <p>Every Spanish noun is either <strong>masculine</strong> or <strong>feminine</strong>. You show that with the little word in front:</p>
+  <table class="gt">
+    <tr><th>Masculine (el)</th><th>Feminine (la)</th></tr>
+    <tr><td>el padre — the father</td><td>la madre — the mother</td></tr>
+    <tr><td>el hermano — the brother</td><td>la hermana — the sister</td></tr>
+    <tr><td>el hijo — the son</td><td>la hija — the daughter</td></tr>
+    <tr><td>el abuelo — the grandfather</td><td>la abuela — the grandmother</td></tr>
+  </table>
+  <p>For more than one, use <strong>los</strong> (masculine or mixed) or <strong>las</strong> (all feminine): <em>los padres</em> = the parents, <em>las hermanas</em> = the sisters.</p>
+  <p>Handy phrases: <strong>mi</strong> = my (<em>mi familia, mi padre</em>), <strong>tengo</strong> = I have (<em>Tengo un hermano</em>), and <strong>él es / ella es</strong> = he is / she is.</p>
+</div>
+
+<h2>Culture Corner</h2>
+<div class="box culture">
+  <p>👨‍👩‍👧‍👦 In Spanish-speaking cultures, <em>la familia</em> often means more than parents and kids — grandparents, aunts, uncles, and cousins are part of everyday life, and Sunday meals together are common.</p>
+  <p>🗣️ People usually say <strong>papá</strong> and <strong>mamá</strong> (dad and mom) at home, and <strong>padre</strong> / <strong>madre</strong> in more formal talk. Both are correct; this lesson teaches the clear "padre / madre" pair first.</p>
+  <p>👋 When you meet someone's family, a warm <em>¡Mucho gusto!</em> (nice to meet you) goes a long way — the same greeting you learned in Week 1.</p>
+</div>
+
+<h2>Part 3: Match the Meaning</h2>
+<div class="box">
+  <p>Choose the English meaning for each Spanish word or phrase.</p>
+  <div id="vmatch"></div>
+  <button type="button" class="main" id="checkMatch">Check my matching</button>
+  <div class="fb" id="matchFb"></div>
+</div>
+
+<h2>Part 4: Listen and Choose</h2>
+<p>Tap 🔊 to hear a clip (as many times as you like), then pick what it means. Only your <strong>first pick</strong> counts toward your score.</p>
+<div id="listen"></div>
+
+<h2>Part 5: Fill in the Blank</h2>
+<p>Type the missing Spanish family word. Accents and capitals are optional, so <em>familia</em> is fine without accents. Press Enter or tap Check.</p>
+<div id="fill"></div>
+
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText"></span>
+  <button type="button" id="finishBtn">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script src="../../assets/player.js"></script>
+<script>
+var WORDS = [
+ {
+  "es": "la familia",
+  "hint": "lah fah-MEE-lee-ah",
+  "en": "family",
+  "audio": "01-familia-family.mp3",
+  "ex_es": "Esta es mi familia.",
+  "ex_en": "This is my family.",
+  "ex_audio": "01-familia-family-ex.mp3"
+ },
+ {
+  "es": "el padre",
+  "hint": "el PAH-dreh",
+  "en": "father",
+  "audio": "02-padre-father.mp3",
+  "ex_es": "Él es mi padre.",
+  "ex_en": "He is my father.",
+  "ex_audio": "02-padre-father-ex.mp3"
+ },
+ {
+  "es": "la madre",
+  "hint": "lah MAH-dreh",
+  "en": "mother",
+  "audio": "03-madre-mother.mp3",
+  "ex_es": "Ella es mi madre.",
+  "ex_en": "She is my mother.",
+  "ex_audio": "03-madre-mother-ex.mp3"
+ },
+ {
+  "es": "el hermano",
+  "hint": "el ehr-MAH-noh",
+  "en": "brother",
+  "audio": "04-hermano-brother.mp3",
+  "ex_es": "Tengo un hermano.",
+  "ex_en": "I have a brother.",
+  "ex_audio": "04-hermano-brother-ex.mp3"
+ },
+ {
+  "es": "la hermana",
+  "hint": "lah ehr-MAH-nah",
+  "en": "sister",
+  "audio": "05-hermana-sister.mp3",
+  "ex_es": "Tengo una hermana.",
+  "ex_en": "I have a sister.",
+  "ex_audio": "05-hermana-sister-ex.mp3"
+ },
+ {
+  "es": "el hijo",
+  "hint": "el EE-hoh (h is silent)",
+  "en": "son",
+  "audio": "06-hijo-son.mp3",
+  "ex_es": "Mi hijo se llama Luis.",
+  "ex_en": "My son is called Luis.",
+  "ex_audio": "06-hijo-son-ex.mp3"
+ },
+ {
+  "es": "la hija",
+  "hint": "lah EE-hah (h is silent)",
+  "en": "daughter",
+  "audio": "07-hija-daughter.mp3",
+  "ex_es": "Mi hija se llama Ana.",
+  "ex_en": "My daughter is called Ana.",
+  "ex_audio": "07-hija-daughter-ex.mp3"
+ },
+ {
+  "es": "el abuelo",
+  "hint": "el ah-BWEH-loh",
+  "en": "grandfather",
+  "audio": "08-abuelo-grandfather.mp3",
+  "ex_es": "Mi abuelo vive cerca.",
+  "ex_en": "My grandfather lives nearby.",
+  "ex_audio": "08-abuelo-grandfather-ex.mp3"
+ },
+ {
+  "es": "la abuela",
+  "hint": "lah ah-BWEH-lah",
+  "en": "grandmother",
+  "audio": "09-abuela-grandmother.mp3",
+  "ex_es": "Mi abuela cocina muy bien.",
+  "ex_en": "My grandmother cooks very well.",
+  "ex_audio": "09-abuela-grandmother-ex.mp3"
+ },
+ {
+  "es": "los padres",
+  "hint": "lohs PAH-drehs",
+  "en": "parents",
+  "audio": "10-padres-parents.mp3",
+  "ex_es": "Mis padres son de México.",
+  "ex_en": "My parents are from Mexico.",
+  "ex_audio": "10-padres-parents-ex.mp3"
+ }
+];
+var DIALOGUE = [
+ {
+  "sp": "Ana",
+  "es": "¡Hola, Rebecca! Te presento a mi familia.",
+  "en": "Hi, Rebecca! Let me introduce you to my family.",
+  "audio": "dialogue-01.mp3"
+ },
+ {
+  "sp": "Rebecca",
+  "es": "¡Hola! Mucho gusto.",
+  "en": "Hi! Nice to meet you.",
+  "audio": "dialogue-02.mp3"
+ },
+ {
+  "sp": "Ana",
+  "es": "Él es mi padre, y ella es mi madre.",
+  "en": "He is my father, and she is my mother.",
+  "audio": "dialogue-03.mp3"
+ },
+ {
+  "sp": "Rebecca",
+  "es": "Mucho gusto. ¿Tienes hermanos?",
+  "en": "Nice to meet you. Do you have siblings?",
+  "audio": "dialogue-04.mp3"
+ },
+ {
+  "sp": "Ana",
+  "es": "Sí, un hermano y una hermana. Y estos son mis abuelos.",
+  "en": "Yes, a brother and a sister. And these are my grandparents.",
+  "audio": "dialogue-05.mp3"
+ },
+ {
+  "sp": "Rebecca",
+  "es": "¡Qué familia tan linda! Adiós.",
+  "en": "What a lovely family! Goodbye.",
+  "audio": "dialogue-06.mp3"
+ }
+];
+
+var PRAISE=["¡Muy bien!","¡Excelente, Rebecca!","¡Perfecto!","Yes! Say it out loud once more.","¡Fantástico!","Correct, nice work!"];
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function shuffled(arr,seed){var a=arr.slice(),s=seed;for(var i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function play(f){ if(window.RebeccaSpanishAudio) RebeccaSpanishAudio.play(f); }
+
+function buildCards(){
+  var box=document.getElementById("cards");
+  WORDS.forEach(function(w,i){
+    var d=document.createElement("div"); d.className="box";
+    d.setAttribute("data-audio", w.audio); d.setAttribute("data-audio-label", w.es);
+    d.innerHTML='<div class="card">'+
+      '<div class="word">'+(i+1)+'. '+w.es+'</div>'+
+      '<div>Say it: <span class="say">'+w.hint+'</span></div>'+
+      '<div><strong>'+w.en+'</strong></div></div>'+
+      '<div class="ex"><strong>Example:</strong> '+w.ex_es+
+      ' <button type="button" class="speak ex-hear" data-file="'+w.ex_audio+'">🔊 Hear example</button><br>'+
+      '<em>'+w.ex_en+'</em></div>'+
+      '<div class="practice"></div>';
+    box.appendChild(d);
+  });
+}
+function buildDialogue(){
+  var box=document.getElementById("dialogue");
+  DIALOGUE.forEach(function(l,i){
+    var d=document.createElement("div"); d.className="box dl"+(l.sp==="Rebecca"?" r":"");
+    d.setAttribute("data-audio", l.audio); d.setAttribute("data-audio-label", l.sp+": "+l.es);
+    d.innerHTML='<div><span class="who">'+l.sp+':</span> <span style="font-size:1.15em">'+l.es+'</span></div><div><em>'+l.en+'</em></div><div class="practice"></div>';
+    box.appendChild(d);
+  });
+}
+document.addEventListener("click",function(e){
+  var b=e.target.closest?e.target.closest("[data-file]"):null;
+  if(!b) return; e.preventDefault(); play(b.getAttribute("data-file"));
+});
+
+var matchScore=0, matchChecked=false;
+function buildMatch(){
+  var m=document.getElementById("vmatch");
+  var order=shuffled(WORDS.map(function(w,i){return i;}),311);
+  WORDS.forEach(function(w,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vm"+i;
+    var sel='<select id="vsel'+i+'" aria-label="Meaning of '+w.es+'"><option value="">- choose English -</option>';
+    order.forEach(function(k){ sel+='<option value="'+k+'">'+WORDS[k].en+'</option>'; });
+    sel+='</select>';
+    row.innerHTML='<span class="mark" id="vmk'+i+'"></span><span class="w">'+w.es+'</span>'+sel;
+    m.appendChild(row);
+  });
+}
+function checkMatch(){
+  var score=0, blank=0;
+  WORDS.forEach(function(w,i){
+    var v=document.getElementById("vsel"+i).value, ok=(v===String(i));
+    if(!v) blank++; if(ok) score++;
+    document.getElementById("vm"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vmk"+i).textContent=ok?"✅":"❌";
+  });
+  matchScore=score; matchChecked=true;
+  var fb=document.getElementById("matchFb");
+  if(score===WORDS.length){ fb.className="fb good"; fb.textContent="🌟 "+score+" / "+WORDS.length+". ¡Perfecto, Rebecca!"; }
+  else { fb.className="fb bad"; fb.textContent=score+" / "+WORDS.length+" correct"+(blank?" ("+blank+" blank)":"")+". Fix the ❌ ones and check again."; }
+  updateScore();
+}
+
+var LISTEN = [
+ {f:"01-familia-family.mp3", o:["Parents","Family","Sister","Brother"], a:1, e:"La familia: family."},
+ {f:"04-hermano-brother.mp3", o:["Sister","Son","Brother","Father"], a:2, e:"El hermano: brother."},
+ {f:"07-hija-daughter.mp3", o:["Daughter","Son","Mother","Grandmother"], a:0, e:"La hija: daughter. Remember, h is silent."},
+ {f:"08-abuelo-grandfather.mp3", o:["Father","Grandmother","Grandfather","Uncle"], a:2, e:"El abuelo: grandfather."},
+ {f:"02-padre-father-ex.mp3", o:["She is my mother.","He is my father.","I have a brother.","This is my family."], a:1, e:"Él es mi padre: he is my father."},
+ {f:"10-padres-parents-ex.mp3", o:["My parents are from Mexico.","My grandparents live nearby.","I have a sister.","My son is called Luis."], a:0, e:"Mis padres son de México: my parents are from Mexico."}
+];
+var lsState=LISTEN.map(function(){return{answered:false,firstRight:false,done:false};});
+function buildListen(){
+  var box=document.getElementById("listen");
+  LISTEN.forEach(function(item,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="ls"+i;
+    var html='<div class="row"><strong>'+(i+1)+'.</strong> <button type="button" class="speak" data-file="'+item.f+'">🔊 Play clip '+(i+1)+'</button></div>';
+    item.o.forEach(function(opt,j){ html+='<button type="button" class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+". "+opt+"</button>"; });
+    html+='<div class="fb" id="lsfb'+i+'"></div>';
+    d.innerHTML=html; box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".opt"):null; if(!b)return;
+    var i=+b.getAttribute("data-i"), j=+b.getAttribute("data-j"), st=lsState[i], item=LISTEN[i];
+    if(st.done)return;
+    var right=(j===item.a);
+    if(!st.answered){ st.answered=true; st.firstRight=right; }
+    var fb=document.getElementById("lsfb"+i), card=document.getElementById("ls"+i);
+    if(right){ st.done=true; b.classList.add("sel-right"); card.className="box q right"; fb.className="fb good"; fb.innerHTML="✅ "+pick(PRAISE)+' <span class="explain">'+item.e+"</span>"; }
+    else { b.classList.add("sel-wrong"); card.className="box q wrong"; fb.className="fb bad"; fb.textContent="❌ Not quite. Play the clip again and listen for the first word."; }
+    updateScore();
+  });
+}
+
+var FILL = [
+ {s:"Esta es mi ___.", en:"This is my family.", a:"familia"},
+ {s:"Él es mi ___.", en:"He is my father.", a:"padre"},
+ {s:"Ella es mi ___.", en:"She is my mother.", a:"madre"},
+ {s:"Tengo un ___.", en:"I have a brother.", a:"hermano"},
+ {s:"Tengo una ___.", en:"I have a sister.", a:"hermana"},
+ {s:"Mi ___ se llama Luis.", en:"My son is called Luis.", a:"hijo"},
+ {s:"Mi ___ se llama Ana.", en:"My daughter is called Ana.", a:"hija"},
+ {s:"Mis ___ son de México.", en:"My parents are from Mexico.", a:"padres"}
+];
+var fillState=FILL.map(function(){return{correct:false,tries:0};});
+function norm(s){
+  s=String(s||"").toLowerCase().trim();
+  if(s.normalize) s=s.normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+  return s.replace(/[¡!¿?.,;:'"\s]+/g,"");
+}
+function buildFill(){
+  var box=document.getElementById("fill");
+  FILL.forEach(function(it,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="f"+i;
+    d.innerHTML='<div><strong>'+(i+1)+'.</strong> <span style="font-size:1.15em">'+it.s+'</span><br><em class="note">'+it.en+'</em></div>'+
+      '<div class="row"><input type="text" id="fi'+i+'" autocomplete="off" spellcheck="false" autocapitalize="off" aria-label="Missing word '+(i+1)+'">'+
+      '<button type="button" class="check" data-i="'+i+'">Check</button></div><div class="fb" id="ffb'+i+'"></div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON"||!b.classList.contains("check"))return;
+    fillCheck(+b.getAttribute("data-i"));
+  });
+  box.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target.tagName==="INPUT")fillCheck(+e.target.id.slice(2));});
+}
+function fillCheck(i){
+  var val=document.getElementById("fi"+i).value, fb=document.getElementById("ffb"+i), st=fillState[i];
+  if(!val.trim()){fb.className="fb bad";fb.textContent="Type the missing word first.";return;}
+  st.tries++;
+  var ok = norm(val)===norm(FILL[i].a);
+  if(ok){
+    st.correct=true; document.getElementById("f"+i).className="box q right";
+    fb.className="fb good"; fb.textContent="✅ "+pick(PRAISE)+(st.tries===1?" (first try!)":"")+" "+FILL[i].s.replace("___",FILL[i].a);
+  } else {
+    st.correct=false; document.getElementById("f"+i).className="box q wrong";
+    fb.className="fb bad"; fb.textContent="❌ Not quite. Look back at Part 1 and try again.";
+  }
+  updateScore();
+}
+
+function scores(){
+  var l=0; lsState.forEach(function(s){if(s.firstRight)l++;});
+  var f=0; fillState.forEach(function(s){if(s.correct)f++;});
+  return {match:matchScore, listen:l, fill:f};
+}
+function updateScore(){
+  var s=scores();
+  document.getElementById("scoreText").textContent="Match: "+(matchChecked?s.match:"-")+"/"+WORDS.length+" · Listening: "+s.listen+"/"+LISTEN.length+" · Fill-in: "+s.fill+"/"+FILL.length;
+}
+function finish(){
+  if(!matchChecked) checkMatch();
+  var s=scores(), total=WORDS.length+LISTEN.length+FILL.length, got=s.match+s.listen+s.fill, pct=Math.round(100*got/total);
+  var msg = pct===100 ? "🏆 ¡Perfecto, Rebecca! Now introduce your own family out loud (Mi padre…, Mi madre…), then try the Part 2 conversation as Rebecca." :
+            pct>=80 ? "🌟 ¡Muy bien! Say mi familia, mi padre, mi madre, mi hermano, mi hermana three times each, smooth and confident." :
+            pct>=60 ? "💪 Good effort. Review the cards and retry the ❌ ones." :
+                      "🌱 Great start. Play all words, repeat each one out loud, then try again.";
+  var f=document.getElementById("final"); f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+got+" / "+total+" ("+pct+"%)</h2>"+
+    "<p>Matching: "+s.match+"/"+WORDS.length+" · Listening (first try): "+s.listen+"/"+LISTEN.length+" · Fill-in: "+s.fill+"/"+FILL.length+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#c2410c'>Finished on "+new Date().toLocaleString("en-CA",{timeZone:"America/Vancouver"})+" PT</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+buildCards(); buildDialogue(); buildMatch(); buildListen(); buildFill(); updateScore();
+RebeccaSpanishAudio.wireLesson({ playAllBtn: "#playAll", stopBtn: "#stopAudio" });
+document.getElementById("checkMatch").addEventListener("click",checkMatch);
+document.getElementById("finishBtn").addEventListener("click",finish);
+</script>
+<script src="../../assets/autosave.js"></script>
+</body>
+</html>
